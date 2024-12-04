@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Listening Stats</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Spotrack</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Total Listening Time</h2>
+                <p class="text-4xl font-bold text-green-600">{{ total_time }}</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Most Played Tracks</h2>
+                <ul class="space-y-2">
+                    {% for track in most_played %}
+                    <li class="flex justify-between items-center">
+                        <div>
+                            <p class="font-medium">{{ track.name }}</p>
+                            <p class="text-sm text-gray-600">{{ track.artist }}</p>
+                        </div>
+                        <span class="text-green-600 font-medium">{{ track.play_count }} plays</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Recently Played</h2>
+                <ul class="space-y-2">
+                    {% for track in recent_tracks %}
+                    <li>
+                        <p class="font-medium">{{ track.name }}</p>
+                        <p class="text-sm text-gray-600">{{ track.artist }}</p>
+                        <p class="text-xs text-gray-500">{{ track.last_listened }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
