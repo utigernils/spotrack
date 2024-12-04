@@ -1,0 +1,6 @@
+{
+    "CLIENT_ID": "XXX",
+    "CLIENT_SECRET": "XXX",
+    "REDIRECT_URI": "http://localhost:8888/callback/",
+    "SCOPE": "user-read-playback-state"
+}
